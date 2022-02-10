@@ -1,5 +1,6 @@
 from numpy.random import default_rng
 
+# Returns a positive float inputted by the user
 def user_float():
     while True:
         try:
@@ -13,6 +14,7 @@ def user_float():
             break
     return(inp)
 
+# Returns a positive integer inputted by the user
 def user_int():
     while True:
         try:
@@ -26,6 +28,7 @@ def user_int():
             break
     return(inp)
 
+# Collects necessary inputs to produce a model
 gen = default_rng()
 print("Enter the starting price.")
 start = user_float()
@@ -36,6 +39,7 @@ volatility = user_float()
 print("Enter the sample size.")
 size = user_int()
 
+# Monte Carlo simulation of option using user input and the assumption that future price is distributed normally
 sample = gen.normal(start, volatility, size)
 total_value = 0.0
 for i in sample:
